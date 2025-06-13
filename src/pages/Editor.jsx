@@ -153,6 +153,8 @@ const Editor = () => {
               isEditing={isEditing}
               onCtaClick={(cta) => window.open(cta.link, '_blank')}
               onCtaPositionChange={handleCtaPositionChange}
+              onProgress={handleTimeUpdate}
+              onDuration={handleDurationChange}
             />
             
             <div className="mt-4">

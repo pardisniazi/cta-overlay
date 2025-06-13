@@ -9,6 +9,8 @@ const Preview = () => {
   const navigate = useNavigate()
   const { projects, setCurrentProject, currentProject } = useProjectStore()
   const [clickedCtas, setClickedCtas] = useState([])
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
   
   // Load project data
   useEffect(() => {
@@ -26,6 +28,16 @@ const Preview = () => {
   const handleCtaClick = (cta) => {
     setClickedCtas(prev => [...prev, cta.id])
     window.open(cta.link, '_blank')
+  }
+  
+  // Handle video progress
+  const handleProgress = (time) => {
+    setCurrentTime(time)
+  }
+  
+  // Handle video duration
+  const handleDuration = (duration) => {
+    setDuration(duration)
   }
   
   if (!currentProject) {
@@ -69,6 +81,8 @@ const Preview = () => {
               videoUrl={currentProject.videoUrl}
               ctas={currentProject.ctas}
               onCtaClick={handleCtaClick}
+              onProgress={handleProgress}
+              onDuration={handleDuration}
             />
             
             <div className="mt-6 pt-6 border-t border-gray-100">
@@ -78,12 +92,14 @@ const Preview = () => {
                 <div className="space-y-3">
                   {currentProject.ctas.map(cta => {
                     const isClicked = clickedCtas.includes(cta.id)
+                    const isActive = currentTime >= cta.startTime && currentTime <= cta.endTime
                     
                     return (
                       <div 
                         key={cta.id}
                         className={`p-4 border rounded-lg transition-all ${
-                          isClicked ? 'border-green-500 bg-green-50' : 'border-gray-200'
+                          isClicked ? 'border-green-500 bg-green-50' : 
+                          isActive ? 'border-primary-500 bg-primary-50' : 'border-gray-200'
                         }`}
                       >
                         <div className="flex items-start justify-between">

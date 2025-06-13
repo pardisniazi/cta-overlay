@@ -7,7 +7,7 @@ const useProjectStore = create((set, get) => ({
       id: '1',
       name: 'Product Review - Fitness Watch',
       description: 'Review video with affiliate CTAs for fitness watch',
-      videoUrl: 'https://www.pexels.com/video/woman-jogging-853889/download/',
+      videoUrl: 'https://www.youtube.com/watch?v=UBMk30rjy0o',
       thumbnail: 'https://images.pexels.com/photos/4498482/pexels-photo-4498482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       created: new Date('2023-07-15').toISOString(),
       updated: new Date('2023-07-18').toISOString(),
@@ -52,7 +52,7 @@ const useProjectStore = create((set, get) => ({
       id: '2',
       name: 'Cooking Tutorial - Kitchen Gadgets',
       description: 'Cooking tutorial with affiliate links to kitchen tools',
-      videoUrl: 'https://www.pexels.com/video/person-cooking-food-in-a-pan-3209268/download/',
+      videoUrl: 'https://www.youtube.com/watch?v=ZJy1ajvMU1k',
       thumbnail: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       created: new Date('2023-06-10').toISOString(),
       updated: new Date('2023-06-12').toISOString(),
@@ -73,6 +73,53 @@ const useProjectStore = create((set, get) => ({
           link: 'https://example.com/product/knife-set',
           startTime: 10,
           endTime: 20,
+        }
+      ]
+    },
+    {
+      id: '3',
+      name: 'Tech Review - Latest Smartphone',
+      description: 'In-depth review of the newest smartphone with affiliate links',
+      videoUrl: 'https://www.youtube.com/watch?v=FT3ODSg1GFE',
+      thumbnail: 'https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      created: new Date('2023-08-05').toISOString(),
+      updated: new Date('2023-08-07').toISOString(),
+      ctas: [
+        {
+          id: 'cta4',
+          type: 'button',
+          text: 'Buy Now with $50 Off',
+          position: { x: 75, y: 60 },
+          style: {
+            backgroundColor: '#1e90ff',
+            color: 'white',
+            fontSize: '16px',
+            padding: '10px 20px',
+            borderRadius: '8px',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          },
+          animation: 'bounce',
+          link: 'https://example.com/product/smartphone',
+          startTime: 15,
+          endTime: 30,
+        },
+        {
+          id: 'cta5',
+          type: 'banner',
+          text: 'Exclusive Discount Code: TECH2023',
+          position: { x: 50, y: 10 },
+          style: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            color: 'white',
+            fontSize: '14px',
+            padding: '8px 16px',
+            borderRadius: '4px',
+            fontWeight: 'bold',
+          },
+          animation: 'slide',
+          link: 'https://example.com/discount',
+          startTime: 40,
+          endTime: 55,
         }
       ]
     }

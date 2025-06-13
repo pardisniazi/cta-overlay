@@ -7,7 +7,9 @@ const VideoPlayer = ({
   ctas = [], 
   isEditing = false, 
   onCtaClick = () => {},
-  onCtaPositionChange = () => {}
+  onCtaPositionChange = () => {},
+  onProgress = () => {},
+  onDuration = () => {}
 }) => {
   const [playing, setPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
@@ -20,6 +22,13 @@ const VideoPlayer = ({
   // Update current time while playing
   const handleProgress = (state) => {
     setCurrentTime(state.playedSeconds)
+    onProgress(state.playedSeconds)
+  }
+  
+  // Handle duration change
+  const handleDuration = (duration) => {
+    setDuration(duration)
+    onDuration(duration)
   }
   
   // Update visible CTAs based on current time
@@ -79,7 +88,7 @@ const VideoPlayer = ({
         playing={playing}
         volume={volume}
         onProgress={handleProgress}
-        onDuration={setDuration}
+        onDuration={handleDuration}
         progressInterval={100}
         controls
       />
