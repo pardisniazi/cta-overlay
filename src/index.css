@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222.2 84% 4.9%;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 font-sans;
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-primary-500;
+  }
+  
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+  
+  .timeline-marker {
+    @apply absolute h-full w-0.5 bg-gray-200;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-item {
+    @apply absolute h-5 cursor-pointer transition-all duration-200 flex items-center justify-center;
+    transform: translateX(-50%);
+  }
+  
+  .cta-overlay {
+    @apply absolute flex items-center justify-center p-4 rounded-lg shadow-lg transition-all duration-300 cursor-pointer;
+  }
+  
+  .cta-button {
+    @apply flex items-center justify-center gap-2 px-4 py-2 rounded-full font-medium shadow-md transition-all duration-300 transform hover:scale-105;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
